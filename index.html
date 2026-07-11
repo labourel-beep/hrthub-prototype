@@ -1,11 +1,4 @@
-<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
-{
-  "name": "Hrtclub 2 0",
-  "schemaVersion": 1,
-  "description": "HRT Club 2.0 — full 16-page member site SPA: softened on-brand design, specialist detail/booking page, fully wired interactions (specialist filters, FAQ, pricing toggles, cart, lab/test selectors, booking, forms), consistent navigation, completed Order Rx & Lab testing pages, and an Account \"savings since you joined\" highlight."
-}
-</script>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2200,27 +2193,6 @@ body{background:#EBE6E1;margin:0;font-family:'Hanken Grotesk',system-ui,-apple-s
 </style>
 </head>
 <body>
-<div id="wt-bar">
-  <span id="wt-label">Walkthrough</span>
-  <div id="wt-steps">
-    <span class="wt-pill" id="wtp-0"  onclick="nav('pg-home')">1. Home</span>
-    <span class="wt-pill" id="wtp-1"  onclick="nav('pg-dashboard')">2. Dashboard</span>
-    <span class="wt-pill" id="wtp-2"  onclick="nav('pg-find-specialist')">3. Find specialist</span>
-    <span class="wt-pill" id="wtp-3"  onclick="nav('pg-order-medication')">4. Order Rx</span>
-    <span class="wt-pill" id="wtp-4"  onclick="nav('pg-lab-testing')">5. Lab testing</span>
-    <span class="wt-pill" id="wtp-5"  onclick="nav('pg-account')">6. Account</span>
-    <span class="wt-pill" id="wtp-6"  onclick="nav('pg-support')">7. Support</span>
-    <span class="wt-pill" id="wtp-7"  onclick="nav('pg-transfer-rx')">8. Transfer Rx</span>
-    <span class="wt-pill" id="wtp-8"  onclick="nav('pg-track-trends')">9. Track trends</span>
-    <span class="wt-pill" id="wtp-9"  onclick="nav('pg-questionnaire')">10. Questionnaire</span>
-    <span class="wt-pill" id="wtp-10" onclick="nav('pg-rxsaver')">11. Upgrade</span>
-    <span class="wt-pill" id="wtp-11" onclick="nav('pg-video')">12. Book video</span>
-    <span class="wt-pill" id="wtp-12" onclick="nav('pg-shop')">13. Shop</span>
-    <span class="wt-pill" id="wtp-13" onclick="nav('pg-pro')">14. Pro</span>
-    <span class="wt-pill" id="wtp-14" onclick="nav('pg-hh101')">15. HH 101</span>
-  </div>
-  <button id="wt-hide" onclick="wtToggle()">Hide</button>
-</div>
 <div id="pg-home" class="pg active">
 <div class="alert">Service note: weather-related disruptions at a major shipping hub may cause short delays on some orders.</div>
 
@@ -5815,62 +5787,7 @@ body{background:#EBE6E1;margin:0;font-family:'Hanken Grotesk',system-ui,-apple-s
   </div>
 </footer>
 </div>
-<script>
-(function(){
-  if(window.__hrtFB)return; window.__hrtFB=true;
-  var PAGE='pg-home',notes={},nextId=1,mode=false,editor=null;
-  function pageNotes(){return notes[PAGE]||(notes[PAGE]=[]);}
-  function persist(){try{sessionStorage.setItem('hrtfb',JSON.stringify(notes));}catch(e){}}
-  try{var r=sessionStorage.getItem('hrtfb');if(r){notes=JSON.parse(r);Object.values(notes).forEach(function(a){a.forEach(function(n){if(n.id>=nextId)nextId=n.id+1;});});}}catch(e){}
-  var css='.fbwrap{position:fixed;right:20px;bottom:20px;z-index:99990;display:flex;flex-direction:column;gap:10px;align-items:flex-end;font-family:system-ui,sans-serif}'
-    +'.fbbtn{border:none;border-radius:100px;padding:11px 16px;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 24px -8px rgba(23,20,17,.5);transition:.18s}'
-    +'.fbbtn:hover{transform:translateY(-1px)}.fbbtn.add{background:#292623;color:#fff}.fbbtn.add.on{background:#6B8199}'
-    +'.fbbtn.list{background:#FBFAF9;color:#292623;border:1px solid #D8D2CB}.fbbtn .ct{background:rgba(255,255,255,.22);border-radius:100px;padding:1px 7px;font-size:11px}.fbbtn.list .ct{background:#E4E6DD;color:#292623}'
-    +'.fbbanner{position:fixed;top:46px;left:0;right:0;z-index:99991;background:#6B8199;color:#fff;text-align:center;padding:8px 14px;font:600 12.5px system-ui;display:none}'
-    +'body.fb-on .fbbanner{display:block}body.fb-on{cursor:crosshair}'
-    +'.fbpin{position:absolute;z-index:99988;width:24px;height:24px;border-radius:50% 50% 50% 3px;background:#6B8199;color:#fff;font:700 11px system-ui;display:grid;place-items:center;transform:translate(-50%,-100%);cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.3);border:2px solid #fff}'
-    +'.fbeditor{position:fixed;z-index:99999;width:256px;background:#fff;border:1px solid #D8D2CB;border-radius:12px;box-shadow:0 16px 40px -12px rgba(0,0,0,.45);padding:13px;font-family:system-ui}'
-    +'.fbeditor .ctx{font-size:11px;color:#6E6760;margin-bottom:7px;line-height:1.4}.fbeditor .ctx b{color:#292623}'
-    +'.fbeditor textarea{width:100%;min-height:60px;border:1px solid #D8D2CB;border-radius:8px;padding:8px;font:13.5px system-ui;resize:vertical;outline:none;color:#292623;box-sizing:border-box}'
-    +'.fbeditor textarea:focus{border-color:#292623}.fbeditor .row{display:flex;gap:8px;margin-top:9px}'
-    +'.fbeditor button{font:600 12px system-ui;border-radius:100px;padding:7px 14px;cursor:pointer;border:none}'
-    +'.fbeditor .save{background:#292623;color:#fff}.fbeditor .del{background:transparent;color:#6B8199;border:1px solid #D8D2CB;margin-left:auto}'
-    +'.fbpanel{position:fixed;right:20px;bottom:120px;width:300px;max-height:58vh;overflow:auto;z-index:99990;background:#FBFAF9;border:1px solid #D8D2CB;border-radius:14px;box-shadow:0 20px 50px -16px rgba(0,0,0,.4);padding:14px 16px;display:none;font-family:system-ui}'
-    +'.fbpanel.open{display:block}.fbpanel h4{font:600 15px serif;margin:0 0 2px;color:#292623}.fbpanel .psub{font-size:11.5px;color:#6E6760;margin-bottom:10px}'
-    +'.fbitem{border-top:1px solid #E7E1D3;padding:10px 0;font-size:12.5px;color:#292623;display:flex;gap:9px;align-items:flex-start}'
-    +'.fbitem .num{flex:none;width:20px;height:20px;border-radius:50%;background:#6B8199;color:#fff;font:700 10px system-ui;display:grid;place-items:center}'
-    +'.fbitem .body{flex:1}.fbitem .c{font-size:10.5px;color:#6E6760;margin-top:2px}'
-    +'.fbitem .x{background:none;border:none;color:#CBD0BF;cursor:pointer;font-size:15px;line-height:1}'
-    +'.fbempty{font-size:12.5px;color:#6E6760;padding:6px 0 2px}'
-    +'.fbcopy{width:100%;margin-top:10px;background:#292623;color:#fff;border:none;border-radius:100px;padding:10px;font:600 13px system-ui;cursor:pointer}'
-    +'.fbcopy:hover{background:#1C1A17}';
-  var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
-  var banner=document.createElement('div');banner.className='fbbanner';
-  banner.textContent='Feedback mode — click anywhere to drop a note. Esc to stop.';
-  document.body.appendChild(banner);
-  var wrap=document.createElement('div');wrap.className='fbwrap';
-  var listBtn=document.createElement('button');listBtn.className='fbbtn list';
-  var addBtn=document.createElement('button');addBtn.className='fbbtn add';
-  wrap.appendChild(listBtn);wrap.appendChild(addBtn);document.body.appendChild(wrap);
-  var panel=document.createElement('div');panel.className='fbpanel';document.body.appendChild(panel);
-  function esc(s){return(s||'').replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
-  function describe(el){if(!el||el===document.body)return 'page area';var t=(el.innerText||'').trim().replace(/\s+/g,' ');if(t.length>60)t=t.slice(0,60)+'…';if(t)return '"'+t+'"';return el.tagName.toLowerCase()+(el.className&&typeof el.className==='string'?'.'+el.className.trim().split(/\s+/)[0]:'');}
-  function counts(){addBtn.classList.toggle('on',mode);addBtn.innerHTML=mode?'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg> Done':'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg> Feedback';var n=pageNotes().length;listBtn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 5h16v11H8l-4 3z"/></svg> Notes <span class="ct">'+n+'</span>';}
-  function renderPins(){document.querySelectorAll('.fbpin').forEach(function(p){p.remove();});pageNotes().forEach(function(n){var pin=document.createElement('div');pin.className='fbpin';pin.textContent=n.id;pin.style.left=n.x+'px';pin.style.top=n.y+'px';pin.title=n.text||'(no note)';pin.addEventListener('click',function(ev){ev.stopPropagation();openEditor(n,ev.clientX,ev.clientY);});document.body.appendChild(pin);});}
-  function closeEditor(){if(editor){editor.remove();editor=null;}}
-  function openEditor(note,x,y){closeEditor();editor=document.createElement('div');editor.className='fbeditor';var ex=Math.min(x,window.innerWidth-280),ey=Math.min(y+16,window.innerHeight-200);editor.style.left=ex+'px';editor.style.top=ey+'px';editor.innerHTML='<div class="ctx">On: <b>'+esc(note.ctx)+'</b></div><textarea placeholder="What should change here?"></textarea><div class="row"><button class="save">Save</button><button class="del">Delete</button></div>';document.body.appendChild(editor);var ta=editor.querySelector('textarea');ta.value=note.text||'';ta.focus();editor.addEventListener('click',function(e){e.stopPropagation();});editor.querySelector('.save').addEventListener('click',function(){note.text=ta.value.trim();var arr=pageNotes();if(arr.indexOf(note)===-1)arr.push(note);persist();renderPins();renderPanel();counts();closeEditor();});editor.querySelector('.del').addEventListener('click',function(){var arr=pageNotes(),i=arr.indexOf(note);if(i>-1)arr.splice(i,1);persist();renderPins();renderPanel();counts();closeEditor();});}
-  function renderPanel(){var arr=pageNotes();var rows=arr.length?arr.map(function(n){return'<div class="fbitem"><span class="num">'+n.id+'</span><div class="body">'+(n.text?esc(n.text):'<i>(empty)</i>')+'<div class="c">'+esc(n.ctx)+'</div></div><button class="x" data-id="'+n.id+'">&times;</button></div>';}).join(''):'<div class="fbempty">No notes yet. Click "Feedback" then click anywhere.</div>';panel.innerHTML='<h4>Feedback</h4><div class="psub">Page: '+PAGE+' · '+arr.length+' note'+(arr.length===1?'':'s')+'</div>'+rows+'<button class="fbcopy">Copy notes</button>';panel.querySelectorAll('.x').forEach(function(b){b.addEventListener('click',function(){var id=+b.dataset.id,arr=pageNotes(),i=arr.findIndex(function(n){return n.id===id;});if(i>-1){arr.splice(i,1);persist();renderPins();renderPanel();counts();}});});panel.querySelector('.fbcopy').addEventListener('click',copyAll);}
-  function copyAll(){var arr=pageNotes();if(!arr.length){flash('No notes on this page yet');return;}var txt='Feedback for "'+PAGE+'" ('+arr.length+' note'+(arr.length===1?'':'s')+'):\n\n'+arr.map(function(n,i){return(i+1)+'. ['+n.ctx+'] — '+(n.text||'(no note)');}).join('\n');function doFB(){var ta=document.createElement('textarea');ta.value=txt;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:170px;z-index:100002;padding:10px;border:1px solid #D8D2CB;border-radius:10px;font:12px/1.4 system-ui;color:#292623;background:#fff;box-shadow:0 22px 56px -18px rgba(0,0,0,.55)';document.body.appendChild(ta);ta.focus();ta.select();var ok=false;try{ok=document.execCommand('copy');}catch(e){}if(ok){ta.remove();flash('Copied! Paste into chat.');}else{flash('Select all, press Ctrl/Cmd+C, then Esc');ta.addEventListener('keydown',function(ev){if(ev.key==='Escape')ta.remove();});ta.addEventListener('blur',function(){setTimeout(function(){if(ta.parentNode)ta.remove();},150);});}}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){flash('Copied! Paste into chat.');},function(){doFB();});}else{doFB();}}
-  function flash(msg){var f=document.createElement('div');f.textContent=msg;f.style.cssText='position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#292623;color:#fff;padding:9px 16px;border-radius:100px;font:600 12.5px system-ui;z-index:100000;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)';document.body.appendChild(f);setTimeout(function(){f.remove();},1800);}
-  function setMode(on){mode=on;document.body.classList.toggle('fb-on',on);if(!on)closeEditor();counts();}
-  addBtn.addEventListener('click',function(){setMode(!mode);if(mode)panel.classList.remove('open');});
-  listBtn.addEventListener('click',function(){panel.classList.toggle('open');if(panel.classList.contains('open'))renderPanel();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){setMode(false);closeEditor();}});
-  document.addEventListener('click',function(e){if(!mode)return;if(e.target.closest('.fbwrap,.fbpanel,.fbeditor,.fbpin,.fbbanner,#wt-bar'))return;e.preventDefault();e.stopPropagation();var note={id:nextId++,x:e.pageX,y:e.pageY,ctx:describe(e.target)};openEditor(note,e.clientX,e.clientY);},true);
-  window.__hrtFBswitch=function(pgId){PAGE=pgId;closeEditor();setMode(false);panel.classList.remove('open');counts();renderPins();};
-  counts();renderPins();
-})();
-</script>
+
 <script>
 var WT=['pg-home','pg-dashboard','pg-find-specialist','pg-order-medication',
   'pg-lab-testing','pg-account','pg-support','pg-transfer-rx','pg-track-trends',
@@ -5887,9 +5804,7 @@ function nav(pgId){
     if(i===ai)pill.classList.add('wt-active');
     else if(i<ai)pill.classList.add('wt-done');
   }
-  if(window.__hrtFBswitch)window.__hrtFBswitch(pgId);
 }
-function wtToggle(){document.getElementById('wt-bar').classList.toggle('wt-hidden');}
 nav('pg-home');
 </script>
 <script>
